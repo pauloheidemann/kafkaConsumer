@@ -4,11 +4,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.web.client.RestTemplate;
 
 import br.com.celesc.kafkaConsumerIntegradorGenesisKaffa.consumer.KafkaThread;
 
@@ -20,15 +22,16 @@ public class KafkaGenesisKaffaApplication extends SpringBootServletInitializer i
 	private KafkaThread kafkaThread;
 	
 	private static final Logger logger = LogManager.getLogger(KafkaThread.class);
-
-    public static void main(String[] args ) {
-        SpringApplication.run(KafkaGenesisKaffaApplication.class, args);
-    }
-    
+	
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
     	return builder.sources(KafkaGenesisKaffaApplication.class);
     }
+    
+    @Bean
+	public RestTemplate restTemplate(RestTemplateBuilder builder) {
+		return builder.build();
+	}
     
     @Override
     public void run(String... args) throws Exception {
