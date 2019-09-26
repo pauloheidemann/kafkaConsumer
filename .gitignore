@@ -1,6 +1,7 @@
 # Don't track content of these folders
 .settings/
 target/
+.svn
 
 # OS generated files #
 ######################
