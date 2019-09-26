@@ -74,7 +74,6 @@ public class KafkaThread {
 			logger.error(hcee.getResponseBodyAsString());
 			throw hcee;
 		} 
-		
 	}
 
 }

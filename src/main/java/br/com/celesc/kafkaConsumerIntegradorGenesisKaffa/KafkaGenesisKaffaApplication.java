@@ -22,7 +22,7 @@ public class KafkaGenesisKaffaApplication extends SpringBootServletInitializer i
 	private KafkaThread kafkaThread;
 	
 	private static final Logger logger = LogManager.getLogger(KafkaThread.class);
-	
+
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
     	return builder.sources(KafkaGenesisKaffaApplication.class);
