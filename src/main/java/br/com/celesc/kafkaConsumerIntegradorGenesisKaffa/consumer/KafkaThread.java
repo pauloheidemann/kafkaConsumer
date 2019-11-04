@@ -43,7 +43,7 @@ public class KafkaThread implements Runnable {
 	}
 	
 	@Override
-	public void run() {
+	public synchronized void run() {
 		try {
 			while (true) {
 				ConsumerRecords<Long, String> records = consumer.poll(Duration.ofMillis(1000));

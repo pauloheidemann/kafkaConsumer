@@ -73,9 +73,14 @@
 	<dependencies>
 
 		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>javax</groupId>
-			<artifactId>javaee-web-api</artifactId>
-			<version>7.0</version>
+			<artifactId>javaee-api</artifactId>
+			<version>8.0</version>
 			<scope>provided</scope>
 		</dependency>
 
