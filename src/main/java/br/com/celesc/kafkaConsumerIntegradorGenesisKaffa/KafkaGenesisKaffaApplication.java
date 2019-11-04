@@ -40,10 +40,17 @@ public class KafkaGenesisKaffaApplication extends SpringBootServletInitializer i
          */
         Thread kafkaConsumerThread = new Thread(() -> {
             logger.info("Starting Kafka consumer thread.");
-            kafkaThread.runSingleWorker();
+            kafkaThread.run();
         });
         
+        //inicia a thread
         kafkaConsumerThread.start();
+        
+        //adiciona um shutdown hook
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+        	logger.info("Shuting down the kafka consumer thread");
+        	kafkaThread.shutdown();
+        }));
     }
 	
 }
